@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: irctc-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: irctc
+  template:
+    metadata:
+      labels:
+        app: irctc
+    spec:
+      containers:
+      - name: irctc-container
+        image: akhil774/irctc:latest
+        ports:
+        - containerPort: 8070
